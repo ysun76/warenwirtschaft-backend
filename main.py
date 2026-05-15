@@ -36,7 +36,7 @@ async def register(user: UserLogin):
     return {"message": "Erfolgreich registriert", "username": user.username}
 
 # 2. 新增登录接口：供前端表单提交时调用
-@app.post("/api/login")
+@app.post("/api/auth/token")
 async def login(user: UserLogin):
     # 验证账号是否存在且密码是否正确
     if user.username in users_db and users_db[user.username] == user.password:
